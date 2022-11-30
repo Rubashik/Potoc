@@ -1,19 +1,16 @@
 package ThreadBank;
-
 public class Bank {
-    private int account=2;
+    private int account;
 
-    public synchronized void inc(){
-        for(;account<20000;account++){
-            System.out.println("inc:"+account);
-        }
+    public Bank(int account) {
+        this.account = account;
     }
-    public synchronized void dec(){
-        for(;account>1;account--){
-            System.out.println("dec:"+account);
-        }
+
+    public void setAccount(int account){
+        this.account = account;
     }
-    public void setAccount(int id){
-        this.account=id;
+
+    public int getAccount() {
+        return account;
     }
 }

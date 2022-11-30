@@ -2,11 +2,12 @@ package ThreadBank;
 
 public class Main {
     public static void main(String[] args) {
-        final Bank bank = new Bank();
-        Thread1 th1 = new Thread1(bank);
-        Thread2 th2 = new Thread2(bank);
-        th1.start();
-        th2.start();
-
+        final Bank bank = new Bank(0);
+        IncrementThread incrementThread = new IncrementThread(bank);
+        DecrementThread decrementThread = new DecrementThread(bank);
+        Thread inc = new Thread(incrementThread);
+        Thread dec = new Thread(decrementThread);
+        inc.start();
+        dec.start();
     }
 }
